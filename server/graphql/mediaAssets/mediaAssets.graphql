@@ -1,0 +1,73 @@
+type MediaAssetQueries {
+  getMediaAssets(input: MediaAssetsInput!): [MediaAsset]!
+}
+
+type MediaAssetMutations {
+  addMediaAsset(input: AddMediaAssetInput!): AddMediaAssetResponse!
+  removeMediaAsset(input: RemoveMediaAssetInput!): Boolean!
+  associateMediaAssetWithShoppingCentre(input: AssociateMediaAssetInput!): Boolean!
+  disassociateMediaAssetFromShoppingCentre(input: DisassociateMediaAssetInput!): Boolean!
+  updateMediaAssetStatus(input: UpdateMediaAssetStatusInput!): Boolean!
+}
+
+input MediaAssetsInput {
+  id: ID
+  name: String
+  associatedShoppingCentreId: ID
+  status: AssetStatus
+}
+
+input AddMediaAssetInput {
+  name: String!
+  width: Int!
+  height: Int!
+}
+
+input RemoveMediaAssetInput {
+  id: ID!
+}
+
+input AssociateMediaAssetInput {
+  id: ID!
+  associatedShoppingCentreId: ID!
+  associatedShoppingCentreLocation: String!
+}
+
+input DisassociateMediaAssetInput {
+  id: ID!
+}
+
+input UpdateMediaAssetStatusInput {
+  id: ID!
+  status: AssetStatus!
+}
+
+type MediaAsset {
+  id: ID!
+  name: String!
+  dimensions: AssetDimension!
+  associatedShoppingCentre: AssociatedShoppingCentre
+  status: AssetStatus!
+
+  lastModifiedAt: String!
+  lastModifiedBy: String!
+}
+
+type AssetDimension  {
+  width: Int!
+  height: Int!
+}
+
+enum AssetStatus {
+  inactive
+  active
+}
+
+type AssociatedShoppingCentre {
+  id: ID!
+  location: String!
+}
+
+type AddMediaAssetResponse {
+  id: ID!
+}

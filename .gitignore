@@ -1,0 +1,4 @@
+.idea/*
+*.log
+.env
+rs256*

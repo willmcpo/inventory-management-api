@@ -1,0 +1,13 @@
+type UserMutations {
+  login(input: LoginInput!): LoginResponse!
+  logout: Boolean!
+}
+
+input LoginInput {
+  username: ID!
+  password: String!
+}
+
+type LoginResponse {
+  token: ID!
+}

@@ -1,0 +1,43 @@
+type ShoppingCentreQueries {
+  getShoppingCentre(input: ShoppingCentresInput!): ShoppingCentre
+}
+
+type ShoppingCentreMutations {
+  addShoppingCentre(input: AddShoppingCentreInput): AddShoppingCentreResponse!
+  removeShoppingCentre(input: RemoveShoppingCentreInput): Boolean!
+  updateShoppingCentre(input: UpdateShoppingCentreInput!): Boolean!
+}
+
+input ShoppingCentresInput {
+  id: ID
+  name: String
+}
+
+input AddShoppingCentreInput {
+  name: String!
+  address: String!
+}
+
+input RemoveShoppingCentreInput {
+  id: ID!
+}
+
+input UpdateShoppingCentreInput {
+  id: ID!
+  name: String
+  address: String
+}
+
+type ShoppingCentre {
+  id: ID!
+  name: String!
+  address: String!
+  mediaAssets: [ID]!
+
+  lastModifiedAt: String!
+  lastModifiedBy: String!
+}
+
+type AddShoppingCentreResponse {
+  id: ID!
+}

@@ -1,0 +1,15 @@
+# import {UserMutations} from './users/users.graphql'
+# import {MediaAssetQueries, MediaAssetMutations} from './mediaAssets/mediaAssets.graphql'
+# import {ShoppingCentreQueries, ShoppingCentreMutations} from './shoppingCentres/shoppingCentres.graphql'
+
+type Query {
+  shoppingCentres: ShoppingCentreQueries!
+  mediaAssets: MediaAssetQueries!
+}
+
+type Mutation {
+  users: UserMutations!
+
+  shoppingCentres: ShoppingCentreMutations!
+  mediaAssets: MediaAssetMutations!
+}
