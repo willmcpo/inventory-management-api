@@ -1,6 +1,7 @@
 import {AuthenticationError} from 'apollo-server-express';
 import {checkToken, login, logout} from './users';
 
+jest.mock('fs');
 jest.mock('jsonwebtoken', () => ({
   verify: (token) => {
     if (token === 'validToken') {
