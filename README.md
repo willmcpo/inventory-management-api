@@ -29,6 +29,33 @@ yarn test
 ### API Framework - GraphQL
 * Chose this approach because I have enjoyed this way of API development so much since I discovered it
 * Could've done the same using REST API but I find it more frictionless to use GraphQL in API development
+* in the `ShoppingCentre` GraphQL type, if you do not query for the `mediaAssets` field, it won't run the
+associated MySQL query which is cool.
+````graphql
+type ShoppingCentre {
+  id: ID!
+  name: String!
+  address: String!
+  mediaAssets: [ID]!
+
+  lastModifiedAt: String!
+  lastModifiedBy: String!
+} 
+````
+* Example of query of a `shoppingCentre` without `mediaAssets`:
+````graphql
+query getShoppingCentre {
+  shoppingCentres {
+    getShoppingCentre(input: {id: 2}) {
+      name
+      address
+      # mediaAssets
+      lastModifiedAt
+      lastModifiedBy
+    }
+  }
+}
+````
 * Performance of GraphQL can be a question mark, but there are ways to minimise any impact - further,
   the endpoint is B2B rather than B2C, which *may mean* performance is not *as* critical of a factor.
 * As always, there are trade-offs to consider - developer experience / speed vs application performance - 
