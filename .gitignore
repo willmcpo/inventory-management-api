@@ -3,3 +3,4 @@
 .env
 rs256*
 node_modules
+.next
