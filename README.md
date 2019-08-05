@@ -5,6 +5,10 @@ instructions on how to [validate the solution](#solution-validation-instructions
 
 ## Quick Start Instructions
 ### To Run
+First, get the `.env`, `rs256.key` and `rs256.key.pub` files separately and drop them in the root directory of this repo.
+
+Then do this:
+
 ```
 npm i yarn -g
 yarn
